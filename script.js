@@ -59,12 +59,16 @@ function checkSelNum() {
 
 function negScore() {
 	currentScore -= 1;
-	currentScore === 0 ? youLose() : null;
+	if (currentScore === 0) {
+		youLose();
+	}
 	currentScoreEl.textContent = `Score: ${currentScore}`;
 }
 
 function youLose() {
-	console.log('you lose!');
+	resultEl.textContent = 'You lose!';
+	revealEl.textContent = randomNum;
+	revealEl.classList.add('reveal-loser');
 }
 
 function youWin() {
@@ -86,4 +90,5 @@ function newGame() {
 	randomNum = Math.floor(Math.random() * 20 + 1);
 	revealEl.textContent = '?';
 	resultEl.textContent = 'Pick a new number!';
+	revealEl.classList.remove('reveal-winner');
 }

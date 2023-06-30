@@ -1,20 +1,42 @@
 @import url('https://fonts.cdnfonts.com/css/digitaldisco');
 
+input {
+	font-family: 'DigitalDisco', sans-serif;
+	font-size: 2rem;
+	width: 100px;
+	text-align: center;
+	padding: 20px;
+}
 body {
 	font-family: 'DigitalDisco', sans-serif;
 	background-color: #191919;
 }
 
+button {
+	padding: 20px;
+	border-style: none;
+	transition-duration: 0.4;
+	font-size: 2rem;
+	font-family: 'DigitalDisco', sans-serif;
+}
+
+button:hover {
+	background-color: rgb(3, 255, 213);
+	color: #191919;
+}
+
+button:active {
+	background-color: rgb(3, 255, 129);
+}
 .grid-container {
 	display: grid;
 	justify-items: center;
 	gap: 10px;
-	background-color: #ffffff;
 	padding: 10px;
 }
 
 .grid-item {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: #191919;
 	text-align: left;
 	padding: 20px;
 	font-size: 30px;
@@ -63,6 +85,7 @@ body {
 .item6 {
 	grid-column: 3 / span 2;
 	grid-row: 4;
+	color: white;
 }
 .item7 {
 	grid-column: 1 / span 2;
@@ -70,10 +93,16 @@ body {
 	text-align: center;
 }
 .item8 {
+	width: 300px;
 	grid-column: 3 / span 2;
 	grid-row: 5;
+	color: white;
 }
 
 .reveal-winner {
 	background-color: greenyellow;
+}
+
+.reveal-loser {
+	background-color: crimson;
 }
