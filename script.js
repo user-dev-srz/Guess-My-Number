@@ -50,6 +50,10 @@ let currentScore = 20;
 let highScore = [];
 console.log(randomNum);
 
+function displayMessage(message) {
+	resultEl.textContent = message;
+}
+
 //NOTE: BUTTON ON CLICK
 guessNumBtn.addEventListener('click', checkSelNum);
 playAgainBtn.addEventListener('click', newGame);
@@ -62,20 +66,20 @@ function checkSelNum() {
 	let guessNum = Number(numInputEl.value);
 	console.log(`guessNum = ${guessNum}`);
 	if (guessNum === 0) {
-		resultEl.textContent = 'Pick a Number!';
+		displayMessage('Pick a Number!');
 	} else if (guessNum === randomNum) {
 		youWin();
 	} else if (guessNum > randomNum) {
-		resultEl.textContent = 'Too high!';
+		displayMessage('Too high!');
 		negScore();
 	} else if (guessNum < randomNum) {
-		resultEl.textContent = 'Too low!';
+		displayMessage('Too low!');
 		negScore();
 	}
 }
 
 function negScore() {
-	currentScore -= 1;
+	currentScore--;
 	if (currentScore === 0) {
 		youLose();
 	}
@@ -83,7 +87,7 @@ function negScore() {
 }
 
 function youLose() {
-	resultEl.textContent = 'You lose!';
+	displayMessage('You lose!');
 	revealEl.textContent = randomNum;
 	revealEl.classList.add('reveal-loser');
 	backgroundColor(loseBgColor);
@@ -92,7 +96,7 @@ function youLose() {
 
 function youWin() {
 	backgroundColor(winBgColor);
-	resultEl.textContent = 'You win!';
+	displayMessage('You Win!');
 	revealEl.textContent = randomNum;
 	revealEl.classList.add('reveal-winner');
 	highScoreChecker();
@@ -106,12 +110,12 @@ function highScoreChecker() {
 }
 
 function newGame() {
+	displayMessage('Start guessing...');
 	backgroundColor(defaultBgColor);
 	currentScore = 20;
 	currentScoreEl.textContent = `Score: ${currentScore}`;
 	randomNum = Math.floor(Math.random() * 20 + 1);
 	revealEl.textContent = '?';
-	resultEl.textContent = 'Start guessing...';
 	revealEl.classList.remove('reveal-winner');
 	revealEl.classList.remove('reveal-loser');
 	document.body.style.background = '#191919';

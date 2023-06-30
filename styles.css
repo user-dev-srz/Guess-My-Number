@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/digitaldisco');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
 * {
 	margin: 0;
@@ -6,10 +7,13 @@
 	padding: 0;
 	box-sizing: inherit;
 }
-
+body {
+	font-family: 'Press Start 2P', sans-serif;
+	background-color: #191919;
+}
 input {
-	font-family: 'DigitalDisco', sans-serif;
-	font-size: 4rem;
+	font-family: 'Press Start 2P', sans-serif;
+	font-size: 2.5rem;
 	width: 100px;
 	border-style: solid;
 	border-width: 5px;
@@ -18,17 +22,13 @@ input {
 	background: none;
 	color: white;
 }
-body {
-	font-family: 'DigitalDisco', sans-serif;
-	background-color: #191919;
-}
 
 button {
+	font-family: 'Press Start 2P', sans-serif;
+	font-size: 1rem;
 	padding: 20px;
 	border-style: none;
 	transition-duration: 0.4;
-	font-size: 2rem;
-	font-family: 'DigitalDisco', sans-serif;
 }
 
 button:hover {
@@ -43,6 +43,7 @@ button:active {
 	margin-top: 50px;
 	display: grid;
 	justify-items: center;
+	align-items: center;
 	gap: 10px;
 	padding: 10px;
 }
@@ -50,7 +51,6 @@ button:active {
 .grid-item {
 	text-align: left;
 	padding: 20px;
-	font-size: 30px;
 }
 
 .item2 {
@@ -67,7 +67,7 @@ button:active {
 	text-align: right;
 }
 .item3 {
-	font-size: 4rem;
+	font-size: 2rem;
 	grid-column: 1 / span 4;
 	grid-row: 2;
 	color: white;
@@ -82,7 +82,7 @@ button:active {
 }
 
 .reveal {
-	font-size: 5rem;
+	font-size: 3rem;
 	background-color: #d4d2d2;
 	width: 100px;
 	padding: 20px;
