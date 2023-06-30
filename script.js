@@ -37,6 +37,7 @@ if score == 0; update for You Lose elements, Play Again Button
 const numInputEl = document.getElementById('guess-number');
 const resultEl = document.querySelector('.result');
 const guessNumBtn = document.querySelector('.guess-number');
+const playAgainBtn = document.querySelector('.play-again');
 let defaultBgColor = '#191919';
 let winBgColor = '#00FF00';
 let loseBgColor = 'crimson';
@@ -48,6 +49,10 @@ let randomNum = Math.floor(Math.random() * 20 + 1);
 let currentScore = 20;
 let highScore = [];
 console.log(randomNum);
+
+//NOTE: BUTTON ON CLICK
+guessNumBtn.addEventListener('click', checkSelNum);
+playAgainBtn.addEventListener('click', newGame);
 
 function backgroundColor(color) {
 	document.body.style.background = color;
@@ -116,3 +121,5 @@ function newGame() {
 function winBg() {
 	winBgColor = winBgColor;
 }
+
+// NOTE: 3:2
