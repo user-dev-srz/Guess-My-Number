@@ -78,6 +78,7 @@ function youWin() {
 	revealEl.textContent = randomNum;
 	revealEl.classList.add('reveal-winner');
 	highScoreChecker();
+	guessNumBtn.disabled = true;
 }
 
 function highScoreChecker() {
@@ -93,5 +94,6 @@ function newGame() {
 	revealEl.textContent = '?';
 	resultEl.textContent = 'Start guessing...';
 	revealEl.classList.remove('reveal-winner');
-	guessNumBtn.disabled = true;
+	revealEl.classList.remove('reveal-loser');
+	guessNumBtn.disabled = false;
 }
