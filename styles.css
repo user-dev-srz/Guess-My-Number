@@ -67,6 +67,7 @@ button:active {
 	text-align: right;
 }
 .item3 {
+	font-size: 4rem;
 	grid-column: 1 / span 4;
 	grid-row: 2;
 	color: white;
