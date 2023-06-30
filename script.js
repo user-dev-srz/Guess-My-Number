@@ -89,6 +89,6 @@ function newGame() {
 	currentScoreEl.textContent = `Score: ${currentScore}`;
 	randomNum = Math.floor(Math.random() * 20 + 1);
 	revealEl.textContent = '?';
-	resultEl.textContent = 'Pick a new number!';
+	resultEl.textContent = 'Start guessing...';
 	revealEl.classList.remove('reveal-winner');
 }
