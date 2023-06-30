@@ -47,7 +47,10 @@ console.log(randomNum);
 
 function checkSelNum() {
 	let guessNum = Number(numInputEl.value);
-	if (guessNum === randomNum) {
+	console.log(`guessNum = ${guessNum}`);
+	if (guessNum === 0) {
+		resultEl.textContent = 'Pick a Number!';
+	} else if (guessNum === randomNum) {
 		youWin();
 	} else if (guessNum > randomNum) {
 		resultEl.textContent = 'Too high!';
