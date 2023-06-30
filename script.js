@@ -36,21 +36,23 @@ if score == 0; update for You Lose elements, Play Again Button
 const numInputEl = document.getElementById('guess-number');
 const resultEl = document.querySelector('.result');
 let currentScoreEl = document.querySelector('.current-score');
-
+let highScoreEl = document.querySelector('.high-score');
+let bestHighScore = undefined;
+let revealEl = document.querySelector('.reveal');
 let randomNum = Math.floor(Math.random() * 20 + 1);
 let currentScore = 20;
-let highScore = '';
+let highScore = [];
 console.log(randomNum);
 
 function checkSelNum() {
 	let guessNum = Number(numInputEl.value);
 	if (guessNum === randomNum) {
-		resultEl.innerHTML = 'You win!';
+		youWin();
 	} else if (guessNum > randomNum) {
-		resultEl.innerHTML = 'Too high!';
+		resultEl.textContent = 'Too high!';
 		negScore();
 	} else if (guessNum < randomNum) {
-		resultEl.innerHTML = 'Too low!';
+		resultEl.textContent = 'Too low!';
 		negScore();
 	}
 }
@@ -63,4 +65,25 @@ function negScore() {
 
 function youLose() {
 	console.log('you lose!');
+}
+
+function youWin() {
+	resultEl.textContent = 'You win!';
+	revealEl.textContent = randomNum;
+	revealEl.classList.add('reveal-winner');
+	highScoreChecker();
+}
+
+function highScoreChecker() {
+	highScore.push(currentScore);
+	bestHighScore = Math.max(...highScore);
+	highScoreEl.textContent = `Hi-score: ${bestHighScore}`;
+}
+
+function newGame() {
+	currentScore = 20;
+	currentScoreEl.textContent = `Score: ${currentScore}`;
+	randomNum = Math.floor(Math.random() * 20 + 1);
+	revealEl.textContent = '?';
+	resultEl.textContent = 'Pick a new number!';
 }
