@@ -34,11 +34,33 @@ if score == 0; update for You Lose elements, Play Again Button
 */
 
 const numInputEl = document.getElementById('guess-number');
+const resultEl = document.querySelector('.result');
+let currentScoreEl = document.querySelector('.current-score');
+
 let randomNum = Math.floor(Math.random() * 20 + 1);
+let currentScore = 20;
+let highScore = '';
 console.log(randomNum);
-let numInput = '';
 
 function checkSelNum() {
-	numInput = numInputEl.value;
-	console.log(numInput);
+	let guessNum = Number(numInputEl.value);
+	if (guessNum === randomNum) {
+		resultEl.innerHTML = 'You win!';
+	} else if (guessNum > randomNum) {
+		resultEl.innerHTML = 'Too high!';
+		negScore();
+	} else if (guessNum < randomNum) {
+		resultEl.innerHTML = 'Too low!';
+		negScore();
+	}
+}
+
+function negScore() {
+	currentScore -= 1;
+	currentScore === 0 ? youLose() : null;
+	currentScoreEl.textContent = `Score: ${currentScore}`;
+}
+
+function youLose() {
+	console.log('you lose!');
 }
