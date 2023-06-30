@@ -35,6 +35,7 @@ if score == 0; update for You Lose elements, Play Again Button
 
 const numInputEl = document.getElementById('guess-number');
 const resultEl = document.querySelector('.result');
+const guessNumBtn = document.querySelector('.guess-number');
 let currentScoreEl = document.querySelector('.current-score');
 let highScoreEl = document.querySelector('.high-score');
 let bestHighScore = undefined;
@@ -69,6 +70,7 @@ function youLose() {
 	resultEl.textContent = 'You lose!';
 	revealEl.textContent = randomNum;
 	revealEl.classList.add('reveal-loser');
+	guessNumBtn.disabled = true;
 }
 
 function youWin() {
@@ -91,4 +93,5 @@ function newGame() {
 	revealEl.textContent = '?';
 	resultEl.textContent = 'Start guessing...';
 	revealEl.classList.remove('reveal-winner');
+	guessNumBtn.disabled = true;
 }
