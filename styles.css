@@ -15,7 +15,7 @@ input {
 	border-width: 5px;
 	text-align: center;
 	padding: 10px;
-	background: #191919;
+	background: none;
 	color: white;
 }
 body {
@@ -37,7 +37,7 @@ button:hover {
 }
 
 button:active {
-	background-color: rgb(3, 255, 129);
+	background-color: rgb(3, 255, 58);
 }
 .grid-container {
 	margin-top: 50px;
@@ -48,7 +48,6 @@ button:active {
 }
 
 .grid-item {
-	background-color: #191919;
 	text-align: left;
 	padding: 20px;
 	font-size: 30px;

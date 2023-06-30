@@ -32,10 +32,14 @@ Main:
 -1,
 if score == 0; update for You Lose elements, Play Again Button
 */
+'use strict';
 
 const numInputEl = document.getElementById('guess-number');
 const resultEl = document.querySelector('.result');
 const guessNumBtn = document.querySelector('.guess-number');
+let defaultBgColor = '#191919';
+let winBgColor = '#00FF00';
+let loseBgColor = 'crimson';
 let currentScoreEl = document.querySelector('.current-score');
 let highScoreEl = document.querySelector('.high-score');
 let bestHighScore = undefined;
@@ -44,6 +48,10 @@ let randomNum = Math.floor(Math.random() * 20 + 1);
 let currentScore = 20;
 let highScore = [];
 console.log(randomNum);
+
+function backgroundColor(color) {
+	document.body.style.background = color;
+}
 
 function checkSelNum() {
 	let guessNum = Number(numInputEl.value);
@@ -73,10 +81,12 @@ function youLose() {
 	resultEl.textContent = 'You lose!';
 	revealEl.textContent = randomNum;
 	revealEl.classList.add('reveal-loser');
+	backgroundColor(loseBgColor);
 	guessNumBtn.disabled = true;
 }
 
 function youWin() {
+	backgroundColor(winBgColor);
 	resultEl.textContent = 'You win!';
 	revealEl.textContent = randomNum;
 	revealEl.classList.add('reveal-winner');
@@ -91,6 +101,7 @@ function highScoreChecker() {
 }
 
 function newGame() {
+	backgroundColor(defaultBgColor);
 	currentScore = 20;
 	currentScoreEl.textContent = `Score: ${currentScore}`;
 	randomNum = Math.floor(Math.random() * 20 + 1);
@@ -98,5 +109,10 @@ function newGame() {
 	resultEl.textContent = 'Start guessing...';
 	revealEl.classList.remove('reveal-winner');
 	revealEl.classList.remove('reveal-loser');
+	document.body.style.background = '#191919';
 	guessNumBtn.disabled = false;
+}
+
+function winBg() {
+	winBgColor = winBgColor;
 }
